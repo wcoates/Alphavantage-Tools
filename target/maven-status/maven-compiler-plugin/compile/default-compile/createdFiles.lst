@@ -1,0 +1,6 @@
+stock\StockQuoteClient$Helper.class
+stock\model\TimeSeries.class
+stock\StockQuoteClient$TimeSeriesTypes.class
+stock\model\StockQuote.class
+stock\StockQuoteClient.class
+stock\StockTrader.class
