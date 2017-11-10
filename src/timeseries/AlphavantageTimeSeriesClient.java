@@ -89,7 +89,7 @@ public class AlphavantageTimeSeriesClient {
           quote.setVolume(record.get(5));
           timeSeries.addQuote(quote);
       }
-      // Remove header
+      // Remove header row
       timeSeries.removeQuote(0);
       
       return timeSeries;
