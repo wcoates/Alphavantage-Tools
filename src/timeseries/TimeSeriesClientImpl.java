@@ -9,27 +9,25 @@ import org.apache.commons.csv.CSVRecord;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import client.AdvantageClient;
 import timeseries.model.Quote;
 import timeseries.model.TimeSeries;
 
-public class AlphavantageTimeSeriesClientImpl implements AlphavantageTimeSeriesClient {
-	final private static Logger Logger = LoggerFactory.getLogger(AlphavantageTimeSeriesClientImpl.class);
+public class TimeSeriesClientImpl extends AdvantageClient implements TimeSeriesClient {
+	final private static Logger Logger = LoggerFactory.getLogger(TimeSeriesClientImpl.class);
 
 	private static String secret;
 
-	public AlphavantageTimeSeriesClientImpl(String secretKey) {
-		AlphavantageTimeSeriesClientImpl.secret = secretKey;
+	public TimeSeriesClientImpl(String secretKey) {
+		TimeSeriesClientImpl.secret = secretKey;
 	}
 
-	public TimeSeries getTimeSeriesData(timeseries.AlphavantageTimeSeriesClient.TimeSeriesTypes seriesType,
+	public TimeSeries getTimeSeriesData(timeseries.TimeSeriesClient.TimeSeriesTypes seriesType,
 			String stockTicker) throws Exception {
-		CloseableHttpClient httpclient = HttpClients.createDefault();
 		TimeSeries timeSeries = null;
 		String responseBody;
 		HttpGet httpGet = new HttpGet(baseURI + "&function=" + seriesType.toString() + "&symbol=" + stockTicker
