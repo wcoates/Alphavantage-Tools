@@ -3,9 +3,7 @@ package timeseries;
 
 import timeseries.model.TimeSeries;
 
-public interface AlphavantageTimeSeriesClient {
-	final static String baseURI = "https://www.alphavantage.co/query?";
-	String secret = "";
+public interface TimeSeriesClient {
 
 	public enum TimeSeriesTypes {
 		INTRADAY("TIME_SERIES_INTRADAY"), DAILY("TIME_SERIES_DAILY"), DAILY_ADJUSTED(
