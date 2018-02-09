@@ -3,10 +3,10 @@ package timeseries.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TimeSeries {
+public class QuoteList {
 	private List<Quote> stockQuotes = new ArrayList<Quote>();
 
-	public TimeSeries() {
+	public QuoteList() {
 
 	}
 

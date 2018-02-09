@@ -1,7 +1,7 @@
 
 package timeseries;
 
-import timeseries.model.TimeSeries;
+import timeseries.model.QuoteList;
 
 public interface TimeSeriesClient {
 
@@ -25,5 +25,5 @@ public interface TimeSeriesClient {
 		}
 	}
 
-	public TimeSeries getTimeSeriesData(TimeSeriesTypes seriesType, String stockTicker) throws Exception;
+	public QuoteList getTimeSeriesData(TimeSeriesTypes seriesType, String stockTicker) throws Exception;
 }
