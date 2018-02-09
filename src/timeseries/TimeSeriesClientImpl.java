@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 
 import client.AdvantageClient;
 import timeseries.model.Quote;
-import timeseries.model.TimeSeries;
+import timeseries.model.QuoteList;
 
 public class TimeSeriesClientImpl extends AdvantageClient implements TimeSeriesClient {
 	final private static Logger Logger = LoggerFactory.getLogger(TimeSeriesClientImpl.class);
@@ -26,9 +26,9 @@ public class TimeSeriesClientImpl extends AdvantageClient implements TimeSeriesC
 		TimeSeriesClientImpl.secret = secretKey;
 	}
 
-	public TimeSeries getTimeSeriesData(timeseries.TimeSeriesClient.TimeSeriesTypes seriesType,
+	public QuoteList getTimeSeriesData(timeseries.TimeSeriesClient.TimeSeriesTypes seriesType,
 			String stockTicker) throws Exception {
-		TimeSeries timeSeries = null;
+		QuoteList timeSeries = null;
 		String responseBody;
 		HttpGet httpGet = new HttpGet(baseURI + "&function=" + seriesType.toString() + "&symbol=" + stockTicker
 				+ "&interval=5min" + "&apikey=" + secret + "&datatype=csv");
@@ -51,8 +51,8 @@ public class TimeSeriesClientImpl extends AdvantageClient implements TimeSeriesC
 	}
 
 	private static class Helper {
-		final static private TimeSeries convertCsvRecordsToTimeSeries(List<CSVRecord> records) {
-			TimeSeries timeSeries = new TimeSeries();
+		final static private QuoteList convertCsvRecordsToTimeSeries(List<CSVRecord> records) {
+			QuoteList timeSeries = new QuoteList();
 			Quote quote;
 
 			for (CSVRecord record : records) {
