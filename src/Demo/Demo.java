@@ -10,7 +10,7 @@ public class Demo {
 	private static final Logger Logger = LoggerFactory.getLogger(AlphaVantageClient.class);
 
 	public static void main(String[] args) {
-		String key = "U7TMSV7OKXIVJXP6";
+		String key = "";
 		try {
 			AlphaVantageClient client = new AlphaVantageClient(key);
 			client.setDatatype("csv");
