@@ -1,4 +1,4 @@
-package timeseries.model;
+package alphavantange.client.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,5 +22,10 @@ public class QuoteList {
 
 	public List<Quote> getStockQuotes() {
 		return stockQuotes;
+	}
+
+	@Override
+	public String toString() {
+		return "QuoteList [stockQuotes=" + stockQuotes + "]";
 	}
 }
