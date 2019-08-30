@@ -1,4 +1,4 @@
-package timeseries.model;
+package alphavantange.client.model;
 
 public class Quote {
 	private String timestamp;
